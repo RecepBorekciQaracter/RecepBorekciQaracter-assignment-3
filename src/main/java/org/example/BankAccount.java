@@ -61,4 +61,16 @@ public class BankAccount {
         return sb.toString();
     }
 
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
 }
