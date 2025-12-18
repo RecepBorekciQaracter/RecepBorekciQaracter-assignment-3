@@ -3,7 +3,7 @@ package org.example;
 public class BankAccount {
     private String accountNumber;
     private String accountHolder;
-    private double balance;
+    protected double balance;
 
     public BankAccount() {
         accountNumber = "Empty";
