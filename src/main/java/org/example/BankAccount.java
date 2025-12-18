@@ -29,4 +29,34 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public void deposit(double amount) {
+        if (amount <= 0) {
+            // TODO: throw InsufficientFundsException.
+        }
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= 0 || balance < amount) {
+            // TODO: throw InsufficientFundsException.
+        }
+
+        balance -= amount;
+    }
+
+    public void transferTo(BankAccount otherAccount, double amount) {
+        this.withdraw(amount);
+        otherAccount.deposit(amount);
+    }
+
+    public String getAccountInfo() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Account Number: ").append(accountNumber).append("\n");
+        sb.append("Account Holder: ").append(accountHolder).append("\n");
+        sb.append("Balance: ").append(balance).append("\n");
+
+        return sb.toString();
+    }
+
 }
