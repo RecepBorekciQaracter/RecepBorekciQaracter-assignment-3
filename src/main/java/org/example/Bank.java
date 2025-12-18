@@ -23,7 +23,7 @@ public class Bank {
         return null;
     }
 
-    public double getBalance(String accountNumber) {
+    public double getBalance() {
         double total = 0;
 
         for (BankAccount account : accounts) {
