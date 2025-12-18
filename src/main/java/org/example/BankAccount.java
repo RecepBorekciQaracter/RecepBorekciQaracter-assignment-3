@@ -29,22 +29,24 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public void deposit(double amount) {
+    public void deposit(double amount) throws InsufficientFundsException {
         if (amount <= 0) {
-            // TODO: throw InsufficientFundsException.
+            throw new InsufficientFundsException("Amount must be greater than zero.");
         }
         balance += amount;
     }
 
-    public void withdraw(double amount) {
-        if (amount <= 0 || balance < amount) {
-            // TODO: throw InsufficientFundsException.
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount <= 0) {
+            throw new InsufficientFundsException("Amount must be greater than zero.");
+        } else if (amount > balance) {
+            throw new InsufficientFundsException("You can't withdraw more than your balance.");
         }
 
         balance -= amount;
     }
 
-    public void transferTo(BankAccount otherAccount, double amount) {
+    public void transferTo(BankAccount otherAccount, double amount) throws InsufficientFundsException {
         this.withdraw(amount);
         otherAccount.deposit(amount);
     }
